@@ -2,6 +2,11 @@ public class Matiere {
     String nom;
     String desc;
     float avancement;
+    public Matiere(String nom, String descripition){
+        this.avancement = 0;
+        this.desc = descripition;
+        this.nom = nom;
+    }
     public String avancement() {
       return desc;
     }

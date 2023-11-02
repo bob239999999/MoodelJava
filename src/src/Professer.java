@@ -3,8 +3,8 @@ import java.util.Observer;
 
 public class Professer extends Utilisateur{
     ArrayList<Observer> listObserver;
-    public Professer(){
-        super();
+    public Professer(String nom, String prenom){
+        super(nom,prenom);
     }
     public void removeObserver(){
 

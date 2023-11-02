@@ -1,5 +1,5 @@
 public class Etudiant extends Utilisateur{
-    public Etudiant(){
-        super();
+    public Etudiant(String nom, String prenom){
+        super(nom,prenom);
     }
 }
