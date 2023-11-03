@@ -1,14 +1,15 @@
 import java.util.Date;
 
 public class Responsable {
-    Responsable responsable;
+    Responsable instance;
 
-    public Responsable(Responsable responsable) {
-        this.responsable = responsable;
-    }
+    private Responsable() {}
 
-    public void getRespoInstance() {
-
+    public Responsable getRespoInstance() {
+   		if (instance == null) {
+   			instance = new Responsable();
+    	}
+    	return(instance);
     }
 
     public void planifieCours(Matiere ma, Professer prof, Date date, String sale) {
