@@ -1,7 +1,14 @@
+import java.util.ArrayList;
+import java.util.Date;
+
 public class Matiere {
     String nom;
     String desc;
     float avancement;
+    ArrayList<RepertoireDepot> repertoires;
+    
+    public Matiere() {}
+    
     public String avancement() {
       return desc;
     }
@@ -14,6 +21,13 @@ public class Matiere {
     public void setAvancement(float avancement) {
         this.avancement = avancement;
     }
+    
+    public RepertoireDepot createRepertoire(String description, Date limite) {
+    	RepertoireDepot rep = new RepertoireDepot(description, limite);
+    	this.repertoires.add(rep);
+    	return(rep);
+    }
+    
     public void calculerMoyenne(){
 
     }
