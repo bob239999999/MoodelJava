@@ -12,11 +12,11 @@ public class Responsable {
     	return(instance);
     }
 
-    public void planifieCours(Matiere ma, Professer prof, Date date, String sale) {
+    public void planifierCours(Matiere ma, Professer prof, Date date, String sale) {
 
     }
 
-    public void annuleCours(Cours cours) {
+    public void annulerCours(Cours cours) {
 
     }
 
@@ -24,7 +24,7 @@ public class Responsable {
 
     }
 
-    public void decrireEtudiantMat(Etudiant etu, Matiere ma) {
+    public void desinscrireEtudiantMat(Etudiant etu, Matiere ma) {
 
     }
 }

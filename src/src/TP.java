@@ -1,2 +1,2 @@
-public class TP {
+public class TP extends Cours {
 }
