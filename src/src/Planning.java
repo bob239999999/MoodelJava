@@ -1,6 +1,10 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Planning {
-    Planning instance;
-    int viewCount;
+    private static Planning instance;
+    private  int viewCount;
+    private List<Cours> coursList = new ArrayList<>();
     public void showByMonth(Utilisateur user){}
     public void showByWeek(Utilisateur user){}
     public void showByDay(Utilisateur user){}
@@ -30,7 +34,17 @@ public class Planning {
     public void getPlannigInstance(Cours c){
 
     }
-    public void removeCours(Cours c){
 
+    public void addCours(Cours cours) {
+        coursList.add(cours);
     }
+
+    public void removeCours(Cours cours) {
+        coursList.remove(cours);
+    }
+
+    public List<Cours> getCoursList() {
+        return coursList;
+    }
+
 }

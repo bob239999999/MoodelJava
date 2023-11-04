@@ -13,9 +13,9 @@ public class Matiere {
         avancement = 0;
     }
 
-    public String avancement() {
-        return desc;
-    }
+   public String getNom(){
+        return this.nom;
+   }
     public String addDoc(Document doc) {
         return("added");
     }
