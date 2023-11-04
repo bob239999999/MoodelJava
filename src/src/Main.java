@@ -8,8 +8,6 @@ public class Main {
         // Create Matiere
         Matiere Geography = new Matiere("geography","Les etude de la geo");
         // Creation des cours
-        Cours cours = new Cours(12-02-2001,"16:00", Geography);
-        //
-        planning.createList();
+        Cours cours = new Cours("12-02-2001","16:00", Geography);
     }
 }
