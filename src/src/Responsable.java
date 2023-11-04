@@ -1,21 +1,22 @@
 import java.util.Date;
 
 public class Responsable {
-    Responsable responsable;
+    Responsable instance;
 
-    public Responsable(Responsable responsable) {
-        this.responsable = responsable;
+    private Responsable() {}
+
+    public Responsable getRespoInstance() {
+   		if (instance == null) {
+   			instance = new Responsable();
+    	}
+    	return(instance);
     }
 
-    public void getRespoInstance() {
+    public void planifierCours(Matiere ma, Professer prof, Date date, String sale) {
 
     }
 
-    public void planifieCours(Matiere ma, Professer prof, Date date, String sale) {
-
-    }
-
-    public void annuleCours(Cours cours) {
+    public void annulerCours(Cours cours) {
 
     }
 
@@ -23,7 +24,7 @@ public class Responsable {
 
     }
 
-    public void decrireEtudiantMat(Etudiant etu, Matiere ma) {
+    public void desinscrireEtudiantMat(Etudiant etu, Matiere ma) {
 
     }
 }
