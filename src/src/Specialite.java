@@ -1,7 +1,7 @@
-class Speciality {
+class Specialite {
     private String name;
 
-    public Speciality(String name) {
+    public Specialite(String name) {
         this.name = name;
     }
 

@@ -1,21 +1,39 @@
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class RepertoireDepot {
-    String desc;
-    boolean ouvert;
-    Date limitRendu;
-    Date limiteRendu;
+    private String desc;
+    private boolean ouvert;
+    private String limiteRendu;
+    private List<Depot> depotList;
 
-    public RepertoireDepot(String d, Date l) {
-        desc = d;
-        limiteRendu = l;
+    public RepertoireDepot(String desc, String l) {
+        this.desc = desc;
+        this.limiteRendu = l;
+        this.depotList = new ArrayList<>();
     }
 
-    public void addDepot(Depot depot){
+    public void addDepot(Depot depot) {
+        depotList.add(depot);
+        limiteRendu = depot.getDate();
+    }
 
+    public void removeDepot(Depot dep) {
+        depotList.remove(dep);
     }
-    public void removeDepot(Depot dep){
+
+    public List<Depot> getDepotList() {
+        return depotList;
     }
+
+    public Depot getDepot(Depot depotToFind) {
+        for (Depot depot : depotList) {
+            if (depot == depotToFind) {
+                return depot;
+            }
+        }
+        return null;
+    }
+
 }
-
-

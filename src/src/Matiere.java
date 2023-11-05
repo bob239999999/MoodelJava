@@ -26,7 +26,7 @@ public class Matiere {
         this.avancement = avancement;
     }
 
-    public RepertoireDepot createRepertoire(String description, Date limite) {
+    public RepertoireDepot createRepertoire(String description, String limite) {
         RepertoireDepot rep = new RepertoireDepot(description, limite);
         this.repertoires.add(rep);
         return(rep);

@@ -28,13 +28,6 @@ public class Planning {
         viewCount = viewCount + 1;
     }
 
-    public void  addCours(){
-
-    }
-    public void getPlannigInstance(Cours c){
-
-    }
-
     public void addCours(Cours cours) {
         coursList.add(cours);
     }
@@ -46,5 +39,4 @@ public class Planning {
     public List<Cours> getCoursList() {
         return coursList;
     }
-
 }

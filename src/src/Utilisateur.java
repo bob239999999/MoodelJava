@@ -5,8 +5,8 @@ public class Utilisateur {
     private int id;
     private String nom;
     private String prenom;
-    Specialities allSpecialities = new Specialities();
-    List<Speciality> specialitiesList = allSpecialities.getSpecialities();
+    Specialites allSpecialities = new Specialites();
+    List<Specialite> specialitiesList = allSpecialities.getSpecialities();
     private String specialite = "NoSpeciality";
     private AffichageBehavior affichage;
     private Planning planning;
@@ -27,15 +27,16 @@ public class Utilisateur {
     }
 
     public void afficherPlanning() {
-
+        System.out.println("Afichage Planning");
     }
-    public void deposerDoc(RepertoireDepot rep, Document doc) {
-
+    public void deposerDoc(RepertoireDepot rep ,Depot depot , Document doc) {
+       rep.getDepot(depot).loadDocument(doc);
     }
     public void affichage() {
+        System.out.println("Afichage");
     }
     public boolean checkSpecialityExists(String speciality) {
-        for (Speciality spec : specialitiesList) {
+        for (Specialite spec : specialitiesList) {
             if (spec.getName().equals(speciality)) {
                 return true;
             }
@@ -46,11 +47,10 @@ public class Utilisateur {
         if (checkSpecialityExists(specialite)) {
             this.specialite = specialite;
         } else {
-            System.out.println("Speciality does not exist in the list.");
+            System.out.println("Specialite does not exist.");
         }
     }
     public String getSpeciality(String specialite){
         return specialite;
     }
-
 }
