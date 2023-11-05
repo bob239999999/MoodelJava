@@ -3,25 +3,33 @@ import java.util.Observable;
 import java.util.Observer;
 
 public class Professer extends Utilisateur {
+
     ArrayList<Observer> observers;
 
     public Professer(String nom, String prenom) {
         super(nom, prenom);
     }
 
-    public void removeObserver() {
+    public void addObserver(Observer observer) {
+        observers.add(observer);
     }
 
-    public void registerObserver() {
+    public void removeObserver(Observer observer) {
+        observers.remove(observer);
     }
 
-    public void notifyObserver() {
+    public void notifyObservers(Object data) {
+        for (Observer observer : observers) {
+            observer.update((Observable) observer,data); // Pass the required data to the update method
+        }
     }
 
     public void addDocMat(Matiere mat, Document doc) {
+
     }
 
     public void addCorrection(Depot dep) {
+
     }
 
     public void noter(Depot dep, float note) {
@@ -32,5 +40,5 @@ public class Professer extends Utilisateur {
 
     public void calcMoyMat(Matiere mat) {
     }
-    
 }
+
