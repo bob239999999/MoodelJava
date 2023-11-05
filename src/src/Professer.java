@@ -1,35 +1,36 @@
 import java.util.ArrayList;
+import java.util.Observable;
 import java.util.Observer;
 
-public class Professer extends Utilisateur{
-    ArrayList<Observer> listObserver;
-    public Professer(String nom, String prenom){
-        super(nom,prenom);
-    }
-    public void removeObserver(){
+public class Professer extends Utilisateur {
+    ArrayList<Observer> observers;
 
+    public Professer(String nom, String prenom) {
+        super(nom, prenom);
     }
-    public void registerObserver(){
 
+    public void removeObserver() {
     }
-    public void notifyObserver(){
 
+    public void registerObserver() {
     }
-    public void addDocMat(Matiere mat, Document doc){
 
+    public void notifyObserver() {
     }
-    public void addCorrection(Depot dep){
 
+    public void addDocMat(Matiere mat, Document doc) {
     }
-    public void noter(Depot dep, float note){
 
+    public void addCorrection(Depot dep) {
     }
-    public void editAvancement(float av){
-    }
-    public void calcMoyMat(Matiere mat){
 
+    public void noter(Depot dep, float note) {
     }
-    public void calcMoyEtu(Etudiant etu){
 
+    public void editAvancement(float av) {
     }
+
+    public void calcMoyMat(Matiere mat) {
+    }
+    
 }
