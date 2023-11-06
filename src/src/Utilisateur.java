@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.List;
 
 public class Utilisateur {
@@ -5,8 +6,6 @@ public class Utilisateur {
     private int id;
     private String nom;
     private String prenom;
-    Specialites allSpecialities = new Specialites();
-    List<Specialite> specialitiesList = allSpecialities.getSpecialities();
     private AffichageBehavior affichage;
     private Planning planning;
     
@@ -17,10 +16,6 @@ public class Utilisateur {
         nextId ++;
     }
 
-    public void assignePlaning(Planning planing){
-        this.planning = planing;
-    }
-
     public void afficherProfil() {
         System.out.println("Ulisateur: > Id: "+id+" Nom: "+nom+" Prenom: "+prenom+" Prenom: "+prenom);
     }
@@ -28,30 +23,21 @@ public class Utilisateur {
     public void afficherPlanning() {
         System.out.println("Afichage Planning");
     }
-    public void deposerDoc(RepertoireDepot rep ,Depot depot , Document doc) {
-       rep.getDepot(depot).loadDocument(doc);
+    public void deposerDoc(RepertoireDepot rep, Document doc) {
+        LocalDate currentDate = LocalDate.now();
+        
+        // Obtenir l'année, le mois et le jour sous forme de chaînes de caractères
+        String year = String.valueOf(currentDate.getYear());
+        String month = String.format("%02d", currentDate.getMonthValue());
+        String day = String.format("%02d", currentDate.getDayOfMonth());
+        
+        // Concaténer les valeurs pour obtenir "yyyymmdd"
+        String concatenatedDate = year + month + day;
+        Depot dep = new Depot(concatenatedDate, doc);
+        rep.addDepot(dep);
     }
+
     public void affichage() {
         System.out.println("Afichage");
-    }
-    public boolean checkSpecialityExists(String speciality) {
-        for (Specialite spec : specialitiesList) {
-            if (spec.getName().equals(speciality)) {
-                return true;
-            }
-        }
-        return false;
-    }
-    /**
-    public void specialite(String specialite){
-        if (checkSpecialityExists(specialite)) {
-            this.specialite = specialite;
-        } else {
-            System.out.println("Specialite does not exist.");
-        }
-    }
-     **/
-    public String getSpeciality(String specialite){
-        return specialite;
     }
 }

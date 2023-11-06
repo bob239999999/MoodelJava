@@ -26,10 +26,9 @@ public class Matiere {
         this.avancement = avancement;
     }
 
-    public RepertoireDepot createRepertoire(String description, String limite) {
-        RepertoireDepot rep = new RepertoireDepot(description, limite);
+    public void ouvrirRepDepot(String titre, String description, String limite) {
+        RepertoireDepot rep = new RepertoireDepot(titre, description, limite);
         this.repertoires.add(rep);
-        return(rep);
     }
 
     public void calculerMoyenne(){

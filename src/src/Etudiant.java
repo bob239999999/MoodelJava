@@ -2,14 +2,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Etudiant extends Utilisateur{
-    private String specialite;
+    private String spe;
+    private ArrayList<TravailEudiant> listeTravauxEtu;
+
     public Etudiant(String nom, String prenom){
         super(nom,prenom);
     }
-    public void addSpeciality(String speciality) {
-        specialite= specialite;
-    }
+
     public String getSpecialities() {
-        return specialite;
+        return spe;
+    }
+
+    public void addTravailEtu(TravailEudiant travail){
+        this.listeTravauxEtu.add(travail);
     }
 }

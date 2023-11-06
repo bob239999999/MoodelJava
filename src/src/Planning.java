@@ -5,9 +5,6 @@ public class Planning {
     private static Planning instance;
     private  int viewCount;
     private List<Cours> coursList = new ArrayList<>();
-    public void showByMonth(Utilisateur user){}
-    public void showByWeek(Utilisateur user){}
-    public void showByDay(Utilisateur user){}
 
     public Planning() {
         viewCount = 0;
