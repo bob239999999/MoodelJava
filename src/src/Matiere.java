@@ -13,7 +13,7 @@ public class Matiere {
         avancement = 0;
     }
 
-   public String getNom(){
+   public String getNom() {
         return this.nom;
    }
     public String addDoc(Document doc) {
@@ -31,8 +31,5 @@ public class Matiere {
         this.repertoires.add(rep);
         return(rep);
     }
-
-    public void calculerMoyenne(){
-
-    }
+    public void calculerMoyenne(){}
 }

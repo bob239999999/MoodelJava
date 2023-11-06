@@ -42,7 +42,7 @@ public class Main {
         Cours cours = new Cours("2023-12-01","16:00",  INFO1);
         Cours cours1 = new Cours("2023-12-02","11:00", INFO2);
         Cours cours2 = new Cours("2023-12-03","13:00", INFO3);
-        Cours cours3 = new Cours("20023-12-01","13:00", INFO1);
+        Cours cours3 = new Cours("2023-12-01","13:00", INFO1);
         Cours cours4 = new Cours("2023-12-02","11:00", INFO2);
         Cours cours5 = new Cours("2023-12-03","19:00", INFO3);
 
@@ -57,8 +57,8 @@ public class Main {
         // Do a selection buy a specific date
         List<Cours> list = new ArrayList<>();
         list = planning.getdate("2023-12-01");
-        System.out.println(list);
-        /**
+        System.out.println(list.toArray());
+
 
         // Visualise Planning 0
         List<Cours> planningCours = planning.getCoursList();
@@ -70,13 +70,14 @@ public class Main {
         // Visualise  Planning 1
         List<Cours> planningCours1 = planning.getCoursList();
 
+        //
         for (Cours c : planningCours1) {
             System.out.println("Course: " + c.getMatiere().getNom() + " at " + c.getHeure());
         }
 
         // Assigne planning
-        user1.assignePlaning(planning);
-        user2.assignePlaning(planning1);
+        etudiant1.assignePlaning(planning);
+        etudiant2.assignePlaning(planning);
 
         // Creat Repertoire de Depot and Depot
         RepertoireDepot rep1 = new RepertoireDepot("Handel IDU","12-01-2024");
@@ -88,6 +89,5 @@ public class Main {
 
         // Student apload a document
         rep1.getDepot(depot).loadDocument(doc);
-         **/
     }
 }
