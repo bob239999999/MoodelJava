@@ -7,7 +7,6 @@ public class Utilisateur {
     private String prenom;
     Specialites allSpecialities = new Specialites();
     List<Specialite> specialitiesList = allSpecialities.getSpecialities();
-    private String specialite = "NoSpeciality";
     private AffichageBehavior affichage;
     private Planning planning;
     
@@ -23,7 +22,7 @@ public class Utilisateur {
     }
 
     public void afficherProfil() {
-        System.out.println("Ulisateur: > Id: "+id+" Nom: "+nom+" Prenom: "+prenom+" Specialite: "+specialite );
+        System.out.println("Ulisateur: > Id: "+id+" Nom: "+nom+" Prenom: "+prenom+" Prenom: "+prenom);
     }
 
     public void afficherPlanning() {
@@ -43,6 +42,7 @@ public class Utilisateur {
         }
         return false;
     }
+    /**
     public void specialite(String specialite){
         if (checkSpecialityExists(specialite)) {
             this.specialite = specialite;
@@ -50,6 +50,7 @@ public class Utilisateur {
             System.out.println("Specialite does not exist.");
         }
     }
+     **/
     public String getSpeciality(String specialite){
         return specialite;
     }

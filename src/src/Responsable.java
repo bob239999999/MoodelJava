@@ -1,18 +1,23 @@
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
-public class Responsable {
+public class Responsable extends Utilisateur{
     Responsable instance;
+    List<Etudiant> listetudiant = new ArrayList<>();
 
-    private Responsable() {}
+    public Responsable(String nom, String prenom){
+        super(nom,prenom);
+    }
 
     public Responsable getRespoInstance() {
    		if (instance == null) {
-   			instance = new Responsable();
+   			instance = new Responsable("NoResponsable","NoResponsable");
     	}
     	return(instance);
     }
 
-    public void planifierCours(Matiere ma, Professer prof, Date date, String sale) {
+    public void planifierCours(Matiere ma, Professor prof, Date date, String sale) {
 
     }
 

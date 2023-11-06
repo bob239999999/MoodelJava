@@ -2,11 +2,11 @@ import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
-public class Professer extends Utilisateur {
+public class Professor extends Utilisateur {
 
     ArrayList<Observer> observers;
 
-    public Professer(String nom, String prenom) {
+    public Professor(String nom, String prenom) {
         super(nom, prenom);
     }
 

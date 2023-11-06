@@ -39,4 +39,13 @@ public class Planning {
     public List<Cours> getCoursList() {
         return coursList;
     }
+    public List<Cours> getdate(String date){
+        List<Cours> coursWithSameDate = new ArrayList<>();
+        for (Cours cour : coursList) {
+            if (cour.getDate().equals(date)) {
+                coursWithSameDate.add(cour);
+            }
+        }
+        return coursWithSameDate;
+    }
 }
