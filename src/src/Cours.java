@@ -34,6 +34,4 @@ public class Cours {
     public void setHeure(String heure) {
         this.heure = heure;
     }
-
-
 }

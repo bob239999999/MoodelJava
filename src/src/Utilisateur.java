@@ -17,7 +17,7 @@ public class Utilisateur {
     }
 
     public void afficherProfil() {
-        System.out.println("Ulisateur: > Id: "+id+" Nom: "+nom+" Prenom: "+prenom+" Prenom: "+prenom);
+        System.out.println("Ulisateur: > Id: "+id+" Nom: "+nom+" Prenom: "+prenom);
     }
 
     public void afficherPlanning() {
