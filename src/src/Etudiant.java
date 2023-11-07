@@ -53,9 +53,10 @@ public class Etudiant extends Utilisateur implements Observer {
         String day = String.format("%02d", currentDate.getDayOfMonth());
         
         // Concaténer les valeurs pour obtenir "yyyymmdd"
-        String concatenatedDate = year + month + day;
+        String concatenatedDate = year + "-" + month + "-" + day;
         Depot dep = new Depot(concatenatedDate, travailEtu);
         rep.addDepot(dep);
+        dep.setRepDepot(rep);
     }
 
     @Override
