@@ -7,35 +7,43 @@ import static java.lang.System.exit;
 public class Main {
     public static void main(String[] args) {
         // Create instances of various classes
+    	Responsable responsable = Responsable.getInstance();
         Etudiant student = new Etudiant("Alice", "Johnson");
         Professeur professor = new Professeur("Dr. Smith", "John");
-        Matiere mathMatiere = new Matiere("Mathematics", "Introduction to Calculus", professor);
-        Matiere csMatiere = new Matiere("Computer Science", "Introduction to Programming", professor);
+        Matiere MATH700 = new Matiere("Mathematics", "Introduction to Calculus", professor);
+        Matiere INFO700 = new Matiere("Computer Science", "Introduction to Programming", professor);
+        student.getListeMatieres().add(INFO700);
+        student.getListeMatieres().add(MATH700);
+        professor.addObserver(student);
 
         // Create and assign documents to the matières
         DocCours mathDoc = new DocCours("Mathematics course content");
-        professor.addDocMat(mathMatiere, mathDoc);
+        professor.addDocMat(MATH700, mathDoc);
         DocCours csDoc = new DocCours("Computer Science course content");
-        professor.addDocMat(csMatiere, csDoc);
+        professor.addDocMat(INFO700, csDoc);
 
         // Create courses
-        Cours mathCourse = new Cours("2023-11-15", "10:00 AM", mathMatiere, professor);
-        TD tutorial = new TD("2023-11-16", "02:00 PM", mathMatiere, professor);
-        TP practicalWork = new TP("2023-11-17", "04:00 PM", csMatiere, professor);
+        Cours mathCourse = new Cours("2023-11-15", "10:00 AM", MATH700, professor);
+        TD tutorial = new TD("2023-11-16", "02:00 PM", MATH700, professor);
+        TP practicalWork = new TP("2023-11-17", "04:00 PM", INFO700, professor);
 
         // Create and assign a student's work
         TravailEtudiant studentWork = new TravailEtudiant(student, "This is the student's work.");
 
         // Create a depot
-        Depot depot = new Depot("2023-11-15", studentWork);
+        professor.ouvrirRepDepot(INFO700, "Dépôts TP", "Déposez vos comptes-rendu ici", "2023-11-10");
+        //Depot depot = new Depot("2023-11-15", studentWork);
+        RepertoireDepot repertoire = INFO700.getListeRepertoires().get(0);
+        student.deposerTravailEtu(repertoire, studentWork);
 
         // Create and assign a correction
         Correction correction = new Correction("This is the correction for the student's work.");
-        professor.addCorrection(depot, correction);
+        Depot depot1 = repertoire.getListeDepots().get(0);
+        professor.addCorrection(depot1, correction);
 
         // Create and assign a note to the student's work
         //Note note = new Note(85.5f, depot, student, mathMatiere);
-        professor.noter(depot, 14);
+        professor.noter(depot1, 14);
 
         // Display the student's profile using a specific affichage behavior
         SansAffichage sansAffichage = new SansAffichage();

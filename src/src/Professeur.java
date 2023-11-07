@@ -3,8 +3,8 @@ import java.util.List;
 
 public class Professeur extends Utilisateur {
 
-    private ArrayList<Observer> observers;
-    private ArrayList<Matiere> listeMatieres;
+    private ArrayList<Observer> observers = new ArrayList<Observer>();
+    private ArrayList<Matiere> listeMatieres = new ArrayList<Matiere>();
 
     public Professeur(String nom, String prenom) {
         super(nom, prenom);
