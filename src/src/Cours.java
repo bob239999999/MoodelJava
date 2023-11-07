@@ -1,14 +1,14 @@
-import java.util.Date;
-
 public class Cours {
-    private Matiere matiere;
     private String date;
     private String heure;
+    private Matiere matiere;
+    private Professor prof;
 
-    public Cours(String date, String heure, Matiere matiere) {
+    public Cours(String date, String heure, Matiere matiere, Professor prof) {
         this.date = date;
         this.heure = heure;
         this.matiere = matiere;
+        this.prof = prof;
     }
 
     public Matiere getMatiere() {
@@ -33,5 +33,13 @@ public class Cours {
 
     public void setHeure(String heure) {
         this.heure = heure;
+    }
+
+    public Professor getProf() {
+        return this.prof;
+    }
+
+    public void setProf(Professor prof) {
+        this.prof = prof;
     }
 }

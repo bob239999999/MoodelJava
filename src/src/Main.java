@@ -75,10 +75,6 @@ public class Main {
             System.out.println("Course: " + c.getMatiere().getNom() + " at " + c.getHeure());
         }
 
-        // Assigne planning
-        etudiant1.assignePlaning(planning);
-        etudiant2.assignePlaning(planning);
-
         // Creat Repertoire de Depot and Depot
         RepertoireDepot rep1 = new RepertoireDepot("Handel IDU","12-01-2024");
         Depot depot = new Depot("12-01-2024", "Miniproject");
@@ -87,7 +83,6 @@ public class Main {
         // Create a document to apload
         Document doc = new Document("Raport");
 
-        // Student apload a document
-        rep1.getDepot(depot).loadDocument(doc);
+
     }
 }

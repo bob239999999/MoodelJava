@@ -1,48 +1,40 @@
 import java.util.ArrayList;
-import java.util.List;
 
 public class Planning {
     private static Planning instance;
-    private  int viewCount;
-    private List<Cours> coursList = new ArrayList<>();
+    private ArrayList<Cours> listeCours;
 
-    public Planning() {
-        viewCount = 0;
+    private Planning() {
+        this.listeCours = new ArrayList<Cours>();
     }
 
-    public Planning getPlanningInstance() {
+    public static Planning getInstance() {
         if (instance == null) {
             instance = new Planning();
         }
         return(instance);
     }
 
-    public int getViewCount() {
-        return viewCount;
-    }
-
-    public void addView() {
-        viewCount = viewCount + 1;
-    }
-
     public void addCours(Cours cours) {
-        coursList.add(cours);
+        listeCours.add(cours);
     }
 
     public void removeCours(Cours cours) {
-        coursList.remove(cours);
+        listeCours.remove(cours);
     }
 
-    public List<Cours> getCoursList() {
-        return coursList;
+    public ArrayList<Cours> getListeCours() {
+        return listeCours;
     }
-    public List<Cours> getdate(String date){
-        List<Cours> coursWithSameDate = new ArrayList<>();
-        for (Cours cour : coursList) {
-            if (cour.getDate().equals(date)) {
-                coursWithSameDate.add(cour);
-            }
-        }
-        return coursWithSameDate;
+
+    public ArrayList<Cours> getCours(String date){
+        return null;
     }
+
+    public ArrayList<Cours> getCours(String dateDebut, String dateFin){
+        return null;
+    }
+
+    
+
 }

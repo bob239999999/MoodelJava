@@ -1,7 +1,5 @@
-import java.util.Date;
-
 public class TP extends Cours{
-    public TP(String d, String h, Matiere matiere){
-        super(d, h, matiere);
+    public TP(String date, String heure, Matiere matiere, Professor prof){
+        super(date, heure, matiere, prof);
     }
 }

@@ -1,43 +1,65 @@
-import java.time.LocalDate;
-import java.util.List;
-
 public class Utilisateur {
     private static int nextId = 1;
     private int id;
     private String nom;
     private String prenom;
-    private AffichageBehavior affichage;
-    private Planning planning;
+    private AffichageBehavior affichageBehavior;
     
     public Utilisateur(String nom, String prenom) {
         this.nom = nom; 
         this.prenom = prenom;
         this.id = nextId;
         nextId ++;
+        this.affichageBehavior = new SansAffichage();
     }
 
+    public static int getNextId() {
+        return nextId;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String n) {
+        this.nom = n;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String p) {
+        this.prenom = p;
+    }
+
+    public AffichageBehavior getAffichageBehavior() {
+        return affichageBehavior;
+    }
+
+    public void setAffichageBehavior(AffichageBehavior a) {
+        this.affichageBehavior = a;
+    }
+
+    
     public void afficherProfil() {
-        System.out.println("Ulisateur: > Id: "+id+" Nom: "+nom+" Prenom: "+prenom);
+        affichageBehavior.afficherProfil(this);
     }
 
-    public void afficherPlanning() {
-        System.out.println("Afichage Planning");
-    }
-    public void deposerDoc(RepertoireDepot rep, Document doc) {
-        LocalDate currentDate = LocalDate.now();
-        
-        // Obtenir l'année, le mois et le jour sous forme de chaînes de caractères
-        String year = String.valueOf(currentDate.getYear());
-        String month = String.format("%02d", currentDate.getMonthValue());
-        String day = String.format("%02d", currentDate.getDayOfMonth());
-        
-        // Concaténer les valeurs pour obtenir "yyyymmdd"
-        String concatenatedDate = year + month + day;
-        Depot dep = new Depot(concatenatedDate, doc);
-        rep.addDepot(dep);
+    public void afficherPlanning(String dateDeb, String dateFin) {
+        //
     }
 
-    public void affichage() {
-        System.out.println("Afichage");
+    public void afficherPlanning(String dateDeb) {
+        //
     }
+
 }

@@ -1,5 +1,3 @@
-public class AffichageBehavior {
-    public void afficherProfil() {
-        //
-    }
+public interface AffichageBehavior {
+    public void afficherProfil(Utilisateur user);
 }

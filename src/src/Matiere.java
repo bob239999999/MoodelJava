@@ -1,34 +1,105 @@
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Matiere {
-    String nom;
-    String desc;
-    float avancement;
-    ArrayList<RepertoireDepot> repertoires;
+    private String nom;
+    private String desc;
+    private float avancement;
+    private Professeur prof;
+    private ArrayList<RepertoireDepot> listeRepertoires;
+    private ArrayList<Etudiant> listeEtudiants;
+    private ArrayList<Note> listeNotes;
+    private ArrayList<DocCours> listeDocsCours;
 
-    public Matiere(String nom, String desc) {
+    public Matiere(String nom, String desc, Professeur prof) {
         this.nom = nom;
         this.desc = desc;
-        avancement = 0;
+        this.avancement = 0;
+        this.prof = prof;
+        this.listeRepertoires = new ArrayList<RepertoireDepot>();
+        this.listeEtudiants = new ArrayList<Etudiant>();
+        this.listeNotes = new ArrayList<Note>();
+        this.listeDocsCours = new ArrayList<DocCours>();
     }
 
-   public String getNom() {
+    public String getNom() {
         return this.nom;
-   }
-    public String addDoc(Document doc) {
-        return("added");
     }
-    public String removeDoc(Document doc) {
-        return("removed");
+
+    public void setNom(String nom){
+        this.nom = nom;
     }
+
+    public String getDesc() {
+        return this.desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public Professeur getProf() {
+        return this.prof;
+    }
+
+    public void setProf(Professeur p) {
+        this.prof = p;
+    }
+
+    public ArrayList<RepertoireDepot> getListeRepertoires() {
+        return this.listeRepertoires;
+    }
+
+    public ArrayList<Etudiant> getListeEtudiants() {
+        return this.listeEtudiants;
+    }
+
+    public ArrayList<Note> getListeNotes() {
+        return this.listeNotes;
+    }
+
+    public ArrayList<DocCours> getListeDocCours() {
+        return this.listeDocsCours;
+    }
+
+
+    public float getAvancement() {
+        return this.avancement;
+    }
+
     public void setAvancement(float avancement) {
         this.avancement = avancement;
     }
 
-    public void ouvrirRepDepot(String titre, String description, String limite) {
-        RepertoireDepot rep = new RepertoireDepot(titre, description, limite);
-        this.repertoires.add(rep);
+    public void addRepDepot(RepertoireDepot rep) {
+        this.listeRepertoires.add(rep);
     }
-    public void calculerMoyenne(){}
+
+    public void removeRepDepot(RepertoireDepot rep) {
+        this.listeRepertoires.remove(rep);
+    }
+
+    public void addEtu(Etudiant e, Object source) {
+        this.listeEtudiants.add(e);
+    }
+
+    public void removeEtu(Etudiant e) {
+        this.listeEtudiants.remove(e);
+    }
+
+    public void addNote(Note n) {
+        this.listeNotes.add(n);
+    }
+
+    public void removeNote(Note n) {
+        this.listeNotes.remove(n);
+    }
+
+    public void addDocCours(DocCours d) {
+        this.listeDocsCours.add(d);
+    }
+
+    public void removeDocCours(DocCours d) {
+        this.listeDocsCours.remove(d);
+    }
+
 }
