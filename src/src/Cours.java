@@ -2,9 +2,9 @@ public class Cours {
     private String date;
     private String heure;
     private Matiere matiere;
-    private Professor prof;
+    private Professeur prof;
 
-    public Cours(String date, String heure, Matiere matiere, Professor prof) {
+    public Cours(String date, String heure, Matiere matiere, Professeur prof) {
         this.date = date;
         this.heure = heure;
         this.matiere = matiere;
@@ -35,11 +35,11 @@ public class Cours {
         this.heure = heure;
     }
 
-    public Professor getProf() {
+    public Professeur getProf() {
         return this.prof;
     }
 
-    public void setProf(Professor prof) {
+    public void setProf(Professeur prof) {
         this.prof = prof;
     }
 }
