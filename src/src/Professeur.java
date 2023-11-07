@@ -27,15 +27,22 @@ public class Professeur extends Utilisateur {
         observers.remove(observer);
     }
 
-    public void notifyObservers(Object data) {
+    public void notifyObserversNewRep() {
         for (Observer observer : observers) {
-            observer.update();
+            observer.updateNewRep(); 
+        }
+    }
+        
+    public void notifyObserversNewDoc() {
+        for (Observer observer : observers) {
+            observer.updateNewDoc();
         }
     }
 
     public void addDocMat(Matiere mat, DocCours d) {
         if (this.listeMatieres.contains(mat)){
             mat.addDocCours(d);
+            notifyObserversNewDoc();
         } else {
             System.out.println("Vous n'avez pas la permission d'ajouter un document pour cette matière.");
         }
@@ -45,6 +52,7 @@ public class Professeur extends Utilisateur {
     public void addCorrection(Depot dep, Correction c) {
         if (this.listeMatieres.contains(dep.getRepDepot().getMatiere())){
             dep.setCorrection(c);
+            notifyObserversNewDoc();
         } else {
             System.out.println("Vous n'avez pas la permission d'ajouter une correction dans cette matière.");
         }
@@ -113,7 +121,7 @@ public class Professeur extends Utilisateur {
     public void ouvrirRepDepot(Matiere mat, String titre, String description, String dateLimite) {
         RepertoireDepot rep = new RepertoireDepot(mat, titre, description, dateLimite);
         mat.addRepDepot(rep);
+        notifyObserversNewRep();
     }
-
 }
 

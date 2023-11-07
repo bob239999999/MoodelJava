@@ -59,6 +59,13 @@ public class Etudiant extends Utilisateur implements Observer {
     }
 
     @Override
-    public void update(){}
+    public void updateNewRep(){
+    	System.out.println("Je suis "+ this.getNom()+" "+ this.getPrenom() +" notification reçue : un nouveau repertoire a été ouvert.");
+    }
+    
+    @Override
+    public void updateNewDoc(){
+    	System.out.println(" Je suis "+ this.getNom()+" "+ this.getPrenom() +" notification reçue : un document vient d'être ajouté .");
+    }
 
 }
