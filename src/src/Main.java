@@ -6,7 +6,44 @@ import static java.lang.System.exit;
 
 public class Main {
     public static void main(String[] args) {
+        // Create instances of various classes
+        Etudiant student = new Etudiant("Alice", "Johnson");
+        Professeur professor = new Professeur("Dr. Smith", "John");
+        Matiere mathMatiere = new Matiere("Mathematics", "Introduction to Calculus", professor);
+        Matiere csMatiere = new Matiere("Computer Science", "Introduction to Programming", professor);
 
+        // Create and assign documents to the matières
+        DocCours mathDoc = new DocCours("Mathematics course content");
+        professor.addDocMat(mathMatiere, mathDoc);
+        DocCours csDoc = new DocCours("Computer Science course content");
+        professor.addDocMat(csMatiere, csDoc);
+
+        // Create courses
+        Cours mathCourse = new Cours("2023-11-15", "10:00 AM", mathMatiere, professor);
+        TD tutorial = new TD("2023-11-16", "02:00 PM", mathMatiere, professor);
+        TP practicalWork = new TP("2023-11-17", "04:00 PM", csMatiere, professor);
+
+        // Create and assign a student's work
+        TravailEtudiant studentWork = new TravailEtudiant(student, "This is the student's work.");
+
+        // Create a depot
+        Depot depot = new Depot("2023-11-15", studentWork);
+
+        // Create and assign a correction
+        Correction correction = new Correction("This is the correction for the student's work.");
+        professor.addCorrection(depot, correction);
+
+        // Create and assign a note to the student's work
+        //Note note = new Note(85.5f, depot, student, mathMatiere);
+        professor.noter(depot, 14);
+
+        // Display the student's profile using a specific affichage behavior
+        SansAffichage sansAffichage = new SansAffichage();
+        student.setAffichageBehavior(sansAffichage);
+        student.afficherProfil();
+
+        
+        /*
         // Responsable
         Responsable responsable  = new Responsable("Albert","Camu");
 
@@ -82,6 +119,7 @@ public class Main {
 
         // Create a document to apload
         Document doc = new Document("Raport");
+		*/
 
 
     }
