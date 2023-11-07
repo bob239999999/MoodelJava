@@ -4,7 +4,7 @@ import java.util.List;
 public class Professeur extends Utilisateur {
 
     private ArrayList<Observer> observers = new ArrayList<Observer>();
-    private ArrayList<Matiere> listeMatieres = new ArrayList<Matiere>();
+    private ArrayList<Matiere> listeMatieres;
 
     public Professeur(String nom, String prenom) {
         super(nom, prenom);
@@ -15,6 +15,10 @@ public class Professeur extends Utilisateur {
         return this.observers;
     }
 
+    public void addMatiere(Matiere mat){
+        this.listeMatieres.add(mat);
+    }
+    
     public ArrayList<Matiere> getMatieres(){
         return this.listeMatieres;
     }

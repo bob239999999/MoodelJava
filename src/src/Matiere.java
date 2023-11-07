@@ -15,6 +15,7 @@ public class Matiere {
         this.desc = desc;
         this.avancement = 0;
         this.prof = prof;
+        prof.addMatiere(this);
         this.listeRepertoires = new ArrayList<RepertoireDepot>();
         this.listeEtudiants = new ArrayList<Etudiant>();
         this.listeNotes = new ArrayList<Note>();
