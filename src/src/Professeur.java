@@ -9,6 +9,7 @@ public class Professeur extends Utilisateur {
     public Professeur(String nom, String prenom) {
         super(nom, prenom);
         this.listeMatieres = new ArrayList<Matiere>();
+        this.observers = new ArrayList<Observer>();
     }
 
     public ArrayList<Observer> getObservers(){
