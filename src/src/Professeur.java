@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,8 +61,19 @@ public class Professeur extends Utilisateur {
     }
 
     public void noter(Depot dep, float x) {
+
+        LocalDate currentDate = LocalDate.now();
+        
+        // Obtenir l'année, le mois et le jour sous forme de chaînes de caractères
+        String year = String.valueOf(currentDate.getYear());
+        String month = String.format("%02d", currentDate.getMonthValue());
+        String day = String.format("%02d", currentDate.getDayOfMonth());
+        
+        // Concaténer les valeurs pour obtenir "yyyymmdd"
+        String concatenatedDate = year + "-" + month + "-" + day;
+
         if (this.listeMatieres.contains(dep.getRepDepot().getMatiere())){
-            Note note = new Note(x, dep, dep.getEtu(), dep.getRepDepot().getMatiere());
+            Note note = new Note(x, dep, dep.getEtu(), dep.getRepDepot().getMatiere(), concatenatedDate);
             dep.setNote(note);
         } else {
             System.out.println("Vous n'avez pas la permission de noter ce travail.");
@@ -123,6 +135,54 @@ public class Professeur extends Utilisateur {
         RepertoireDepot rep = new RepertoireDepot(mat, titre, description, dateLimite);
         mat.addRepDepot(rep);
         notifyObserversNewRep();
+    }
+
+    @Override 
+    public void afficherPlanning(String dateDeb){
+        Professeur professeur = this;
+        Planning planning = Planning.getInstance();
+        ArrayList<Cours> coursDuJour = planning.getCours(dateDeb);
+        
+        ArrayList<Cours> coursAafficher = new ArrayList<>();
+
+        for (Cours cours : coursDuJour) {
+            if (cours.getProf() == professeur) {
+                coursAafficher.add(cours);
+            }
+        }
+
+        if (coursAafficher.isEmpty()) {
+            System.out.printf("Pas de cours programmés pour le %s.", dateDeb);
+        } else {
+            System.out.printf("Cours programmés pour le %s.", dateDeb);
+            for (Cours cours : coursAafficher) {
+                System.out.println(cours);
+            }
+        }
+    }
+
+    @Override
+    public void afficherPlanning(String dateDeb, String dateFin){
+        Professeur professeur = this;
+        Planning planning = Planning.getInstance();
+        ArrayList<Cours> coursDuJour = planning.getCours(dateDeb);
+        
+        ArrayList<Cours> coursAafficher = new ArrayList<>();
+
+        for (Cours cours : coursDuJour) {
+            if (cours.getProf() == professeur) {
+                coursAafficher.add(cours);
+            }
+        }
+
+        if (coursAafficher.isEmpty()) {
+            System.out.printf("Pas de cours programmés entre le %s et le %s", dateDeb, dateFin);
+        } else {
+            System.out.printf("Cours programmés entre le %s et le %s", dateDeb, dateFin);
+            for (Cours cours : coursAafficher) {
+                System.out.println(cours);
+            }
+        }
     }
 }
 

@@ -44,7 +44,7 @@ public class Etudiant extends Utilisateur implements Observer {
         this.listeTravauxEtu.add(travail);
     }
 
-    public void deposerTravailEtu(RepertoireDepot rep, TravailEtudiant travailEtu) {
+    public void deposerTravailEtu(String titre, RepertoireDepot rep, TravailEtudiant travailEtu) {
         LocalDate currentDate = LocalDate.now();
         
         // Obtenir l'année, le mois et le jour sous forme de chaînes de caractères
@@ -54,9 +54,57 @@ public class Etudiant extends Utilisateur implements Observer {
         
         // Concaténer les valeurs pour obtenir "yyyymmdd"
         String concatenatedDate = year + "-" + month + "-" + day;
-        Depot dep = new Depot(concatenatedDate, travailEtu);
+        Depot dep = new Depot(titre, concatenatedDate, travailEtu);
         rep.addDepot(dep);
         dep.setRepDepot(rep);
+    }
+
+    @Override 
+    public void afficherPlanning(String dateDeb){
+        Etudiant etudiant = this;
+        Planning planning = Planning.getInstance();
+        ArrayList<Cours> coursDuJour = planning.getCours(dateDeb);
+        
+        ArrayList<Cours> coursAafficher = new ArrayList<>();
+        
+        for (Cours cours : coursDuJour) {
+            if (etudiant.getListeMatieres().contains(cours.getMatiere())) {
+                coursAafficher.add(cours);
+            }
+        }
+
+        if (coursAafficher.isEmpty()) {
+            System.out.printf("Pas de cours programmés pour le %s.", dateDeb);
+        } else {
+            System.out.printf("Cours programmés pour le %s.", dateDeb);
+            for (Cours cours : coursAafficher) {
+                System.out.println(cours);
+            }
+        }
+    }
+
+    @Override
+    public void afficherPlanning(String dateDeb, String dateFin){
+            Etudiant etudiant = this;
+            Planning planning = Planning.getInstance();
+            ArrayList<Cours> coursDuJour = planning.getCours(dateDeb, dateFin);
+            
+            ArrayList<Cours> coursAafficher = new ArrayList<>();
+            
+            for (Cours cours : coursDuJour) {
+                if (etudiant.getListeMatieres().contains(cours.getMatiere())) {
+                    coursAafficher.add(cours);
+                }
+            }
+
+            if (coursAafficher.isEmpty()) {
+                System.out.printf("Pas de cours programmés entre le %s et le %s", dateDeb, dateFin);
+            } else {
+                System.out.printf("Cours programmés entre le %s et le %s", dateDeb, dateFin);
+                for (Cours cours : coursAafficher) {
+                    System.out.println(cours);
+                }
+            }
     }
 
     @Override

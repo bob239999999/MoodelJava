@@ -27,14 +27,28 @@ public class Planning {
         return listeCours;
     }
 
-    public ArrayList<Cours> getCours(String date){
-        return null;
+    public ArrayList<Cours> getCours(String date) {
+        ArrayList<Cours> coursByDate = new ArrayList<>();
+
+        for (Cours cours : listeCours) {
+            if (cours.getDate().equals(date)) {
+                coursByDate.add(cours);
+            }
+        }
+
+        return coursByDate;
     }
 
-    public ArrayList<Cours> getCours(String dateDebut, String dateFin){
-        return null;
+    public ArrayList<Cours> getCours(String dateDebut, String dateFin) {
+        ArrayList<Cours> coursByDateRange = new ArrayList<>();
+
+        for (Cours cours : listeCours) {
+            String coursDate = cours.getDate();
+            if (coursDate.compareTo(dateDebut) >= 0 && coursDate.compareTo(dateFin) <= 0) {
+                coursByDateRange.add(cours);
+            }
+        }
+
+        return coursByDateRange;
     }
-
-    
-
 }

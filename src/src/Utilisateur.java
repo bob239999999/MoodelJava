@@ -1,4 +1,4 @@
-public class Utilisateur {
+public abstract class Utilisateur {
     private static int nextId = 1;
     private int id;
     private String nom;
@@ -54,12 +54,8 @@ public class Utilisateur {
         affichageBehavior.afficherProfil(this);
     }
 
-    public void afficherPlanning(String dateDeb, String dateFin) {
-        //
-    }
+    public abstract void afficherPlanning(String dateDeb, String dateFin);
 
-    public void afficherPlanning(String dateDeb) {
-        //
-    }
+    public abstract void afficherPlanning(String dateDeb);
 
 }

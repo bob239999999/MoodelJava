@@ -1,6 +1,7 @@
 public class Depot {
     private static int nextIdDepot = 1;
     private int idDepot;
+    private String titre;
     private String date;
     private Etudiant etudiant;
     private TravailEtudiant travailEtu;
@@ -8,9 +9,10 @@ public class Depot {
     private Note note;
     private RepertoireDepot repDepot;
 
-    public Depot(String date, TravailEtudiant travailEtu) {
+    public Depot(String titre, String date, TravailEtudiant travailEtu) {
         this.idDepot = nextIdDepot;
         nextIdDepot++;
+        this.titre = titre;
         this.date = date;
         this.travailEtu = travailEtu;
         this.etudiant = travailEtu.getEtu();
@@ -20,12 +22,17 @@ public class Depot {
         return idDepot;
     }
 
-    public String getDate(){
-        return date;
+
+    public String getTitre(){
+        return this.titre;
     }
 
-    public void setDate(String date){
-        this.date = date;
+    public void setTitre(String t){
+        this.titre = t;
+    }
+
+    public String getDate(){
+        return date;
     }
 
     public Etudiant getEtu(){

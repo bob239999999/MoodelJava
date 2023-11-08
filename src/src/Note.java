@@ -3,12 +3,14 @@ public class Note {
     private Depot depot;
     private Etudiant etu;
     private Matiere matiere;
+    private String date;
 
-    public Note(float note, Depot dep, Etudiant e, Matiere m){
+    public Note(float note, Depot dep, Etudiant e, Matiere m, String date){
         this.note = note;
         this.depot = dep;
         this.etu = e;
         this.matiere = m;
+        this.date = date;
     }
 
 
@@ -43,6 +45,10 @@ public class Note {
 
     public void setMatiere(Matiere m){
         this.matiere = m;
+    }
+
+    public String getDate(){
+        return this.date;
     }
     
 }

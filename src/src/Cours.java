@@ -42,4 +42,23 @@ public class Cours {
     public void setProf(Professeur prof) {
         this.prof = prof;
     }
+
+    @Override
+    public String toString() {
+        String typeCours = "";
+
+        if (this instanceof CM) {
+            typeCours = "CM";
+        } else if (this instanceof TD) {
+            typeCours = "TD";
+        } else if (this instanceof TP) {
+            typeCours = "TP";
+        }
+
+        return "----------\n" +
+               matiere.getNom() + " - " + typeCours + "\n" +
+               date + " - " + heure + "\n" +
+               prof.getNom() + " " + prof.getPrenom() + "\n" +
+               "---------";
+    }
 }

@@ -30,7 +30,7 @@ public class Responsable extends Utilisateur {
     }
 
 
-    public void planifierCours(Matiere m, Professeur prof, String date, String salle) {
+    public void planifierCours(Matiere m, Professeur prof, String date) {
 
     }
 
@@ -45,4 +45,10 @@ public class Responsable extends Utilisateur {
     public void desinscrireEtudiantMat(Etudiant etu, Matiere ma) {
 
     }
+
+    @Override 
+    public void afficherPlanning(String dateDeb){System.out.println("Pas d'affichage disponible pour le moment.");}
+
+    @Override
+    public void afficherPlanning(String dateDeb, String dateFin){System.out.println("Pas d'affichage disponible pour le moment.");}
 }
