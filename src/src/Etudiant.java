@@ -60,13 +60,13 @@ public class Etudiant extends Utilisateur implements Observer {
     }
 
     @Override
-    public void updateNewRep(){
-    	System.out.println("Je suis "+ this.getNom()+" "+ this.getPrenom() +" notification reçue : un nouveau repertoire a été ouvert.");
+    public void updateNewRep(Matiere mat){
+    	System.out.println("Je suis "+ this.getNom()+" "+ this.getPrenom() +" notification reçue : un nouveau repertoire a été ouvert dans le module " + mat.getNom() + ".");
     }
     
     @Override
-    public void updateNewDoc(){
-    	System.out.println(" Je suis "+ this.getNom()+" "+ this.getPrenom() +" notification reçue : un document vient d'être ajouté .");
+    public void updateNewDoc(Matiere mat){
+    	System.out.println(" Je suis "+ this.getNom()+" "+ this.getPrenom() +" notification reçue : un document vient d'être ajouté dans le module " + mat.getNom() + ".");
     }
 
 }

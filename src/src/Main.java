@@ -10,8 +10,8 @@ public class Main {
     	Responsable responsable = Responsable.getInstance();
         Etudiant student = new Etudiant("Alice", "Johnson");
         Professeur professor = new Professeur("Dr. Smith", "John");
-        Matiere MATH700 = new Matiere("Mathematics", "Introduction to Calculus", professor);
-        Matiere INFO700 = new Matiere("Computer Science", "Introduction to Programming", professor);
+        Matiere MATH700 = new Matiere("MATH700", "Introduction to Calculus", professor);
+        Matiere INFO700 = new Matiere("INFO700", "Introduction to Programming", professor);
         student.getListeMatieres().add(INFO700);
         student.getListeMatieres().add(MATH700);
         professor.addObserver(student);
