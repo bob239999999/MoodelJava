@@ -5,7 +5,7 @@ import java.util.List;
 public class Professeur extends Utilisateur {
 
     private ArrayList<Observer> observers = new ArrayList<Observer>();
-    private ArrayList<Matiere> listeMatieres = new ArrayList<Matiere>();
+    private ArrayList<Matiere> listeMatieres;
 
     public Professeur(String nom, String prenom) {
         super(nom, prenom);
@@ -17,6 +17,10 @@ public class Professeur extends Utilisateur {
         return this.observers;
     }
 
+    public void addMatiere(Matiere mat){
+        this.listeMatieres.add(mat);
+    }
+    
     public ArrayList<Matiere> getMatieres(){
         return this.listeMatieres;
     }
@@ -29,22 +33,22 @@ public class Professeur extends Utilisateur {
         observers.remove(observer);
     }
 
-    public void notifyObserversNewRep() {
+    public void notifyObserversNewRep(Matiere mat) {
         for (Observer observer : observers) {
-            observer.updateNewRep(); 
+            observer.updateNewRep(mat); 
         }
     }
         
-    public void notifyObserversNewDoc() {
+    public void notifyObserversNewDoc(Matiere mat) {
         for (Observer observer : observers) {
-            observer.updateNewDoc();
+            observer.updateNewDoc(mat);
         }
     }
 
     public void addDocMat(Matiere mat, DocCours d) {
         if (this.listeMatieres.contains(mat)){
             mat.addDocCours(d);
-            notifyObserversNewDoc();
+            notifyObserversNewDoc(mat);
         } else {
             System.out.println("Vous n'avez pas la permission d'ajouter un document pour cette matière.");
         }
@@ -52,9 +56,10 @@ public class Professeur extends Utilisateur {
     }
 
     public void addCorrection(Depot dep, Correction c) {
-        if (this.listeMatieres.contains(dep.getRepDepot().getMatiere())){
+    	Matiere mat = dep.getRepDepot().getMatiere();
+        if (this.listeMatieres.contains(mat)){
             dep.setCorrection(c);
-            notifyObserversNewDoc();
+            notifyObserversNewDoc(mat);
         } else {
             System.out.println("Vous n'avez pas la permission d'ajouter une correction dans cette matière.");
         }
@@ -134,7 +139,7 @@ public class Professeur extends Utilisateur {
     public void ouvrirRepDepot(Matiere mat, String titre, String description, String dateLimite) {
         RepertoireDepot rep = new RepertoireDepot(mat, titre, description, dateLimite);
         mat.addRepDepot(rep);
-        notifyObserversNewRep();
+        notifyObserversNewRep(mat);
     }
 
     @Override 
