@@ -27,7 +27,7 @@ public class AffichageDetails implements AffichageBehavior {
         if (user instanceof Etudiant) {
             Etudiant etudiant = (Etudiant) user;
             System.out.println("\n");
-            System.out.println("------ Travaux à rendre pour la semaine la semaine :");
+            System.out.println("------ Travaux à rendre pour la semaine :");
             List<Matiere> matieresInscrites = etudiant.getListeMatieres();
 
             for (Matiere matiere : matieresInscrites) {

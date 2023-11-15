@@ -76,7 +76,7 @@ public class Etudiant extends Utilisateur implements Observer {
         if (coursAafficher.isEmpty()) {
             System.out.printf("Pas de cours programmés pour le %s.", dateDeb);
         } else {
-            System.out.printf("Cours programmés pour le %s.", dateDeb);
+            System.out.printf("Cours programmés pour le %s : \n", dateDeb);
             for (Cours cours : coursAafficher) {
                 System.out.println(cours);
             }
@@ -100,7 +100,7 @@ public class Etudiant extends Utilisateur implements Observer {
             if (coursAafficher.isEmpty()) {
                 System.out.printf("Pas de cours programmés entre le %s et le %s", dateDeb, dateFin);
             } else {
-                System.out.printf("Cours programmés entre le %s et le %s", dateDeb, dateFin);
+                System.out.printf("Cours programmés entre le %s et le %s : \n", dateDeb, dateFin);
                 for (Cours cours : coursAafficher) {
                     System.out.println(cours);
                 }
