@@ -3,6 +3,10 @@ import java.time.format.DateTimeFormatter;
 
 public class AffichageSimple implements AffichageBehavior {
     public void afficherProfil(Utilisateur user) {
+        System.out.println("\n");
+        System.out.println("==============================================================================");
+        System.out.println("================ AFFICHAGE PROFIL ================");
+        System.out.println("------ Informations personnelles : ");
         System.out.println("Nom : " + user.getNom());
         System.out.println("Prenom : " + user.getPrenom());
 
@@ -10,6 +14,8 @@ public class AffichageSimple implements AffichageBehavior {
         LocalDate date = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         String dateFormatted = date.format(formatter);
+        System.out.println("\n");
+        System.out.println("------ Emploi du temps du jour : ");
         user.afficherPlanning(dateFormatted);
 
         if (user instanceof Etudiant) {
@@ -27,5 +33,7 @@ public class AffichageSimple implements AffichageBehavior {
                 }
             }
         }
+        System.out.println("\n");
+        System.out.println("==============================================================================");
     }
 }

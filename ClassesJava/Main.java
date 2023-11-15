@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Main {
     public static void main(String[] args) {
@@ -19,9 +21,14 @@ public class Main {
         professor.addDocMat(INFO700, csDoc);
 
         // Create courses
-        CM mathCourse = new CM("2023-11-08", "10:00 AM", MATH700, professor);
-        TD tutorial = new TD("2023-11-10", "02:00 PM", MATH700, professor);
-        TP practicalWork = new TP("2023-11-11", "04:00 PM", INFO700, professor);
+        LocalDate date = LocalDate.now();
+        date = date.plusDays(2);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String dateFormatted = date.format(formatter);
+
+        CM mathCourse = new CM(dateFormatted, "10:00 AM", MATH700, professor);
+        TD tutorial = new TD(dateFormatted, "02:00 PM", MATH700, professor);
+        TP practicalWork = new TP(dateFormatted, "04:00 PM", INFO700, professor);
         planning.addCours(mathCourse);
         planning.addCours(tutorial);
         planning.addCours(practicalWork);
@@ -30,7 +37,10 @@ public class Main {
         TravailEtudiant studentWork = new TravailEtudiant(student, "This is the student's work.");
 
         // Create a depot
-        professor.ouvrirRepDepot(INFO700, "Dépôts TP1", "Déposez vos comptes-rendu ici", "2023-11-10");
+        LocalDate today = LocalDate.now();
+        String todayFormatted = today.format(formatter);
+
+        professor.ouvrirRepDepot(INFO700, "Dépôts TP1", "Déposez vos comptes-rendu ici", todayFormatted);
         //Depot depot = new Depot("2023-11-15", studentWork);
         RepertoireDepot repertoire = INFO700.getListeRepertoires().get(0);
         student.deposerTravailEtu("StudentWork", repertoire, studentWork);

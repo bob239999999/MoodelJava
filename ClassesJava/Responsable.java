@@ -7,7 +7,7 @@ public class Responsable extends Utilisateur {
     private ArrayList<Utilisateur> listeUsers;
 
     private Responsable() {
-        super("Favrelieres", "Hugues");
+        super("Favreliere", "Hugues");
     }
 
     public static Responsable getInstance() {

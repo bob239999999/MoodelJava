@@ -6,6 +6,10 @@ import java.util.List;
 public class AffichageDetails implements AffichageBehavior {
 
     public void afficherProfil(Utilisateur user) {
+        System.out.println("\n");
+        System.out.println("==============================================================================");
+        System.out.println("================ AFFICHAGE PROFIL ================");
+        System.out.println("------ Informations personnelles : ");
         System.out.println("Nom : " + user.getNom());
         System.out.println("Prenom : " + user.getPrenom());
 
@@ -16,6 +20,8 @@ public class AffichageDetails implements AffichageBehavior {
         String dateDebutSemaineFormatted = dateDebutSemaine.format(formatter);
         String dateFinSemaineFormatted = dateFinSemaine.format(formatter);
 
+        System.out.println("\n");
+        System.out.println("------ Emploi du temps de la semaine : ");
         user.afficherPlanning(dateDebutSemaineFormatted, dateFinSemaineFormatted);
         
         if (user instanceof Etudiant) {
@@ -47,6 +53,8 @@ public class AffichageDetails implements AffichageBehavior {
                 }
             }
         }
+        System.out.println("\n");
+        System.out.println("==============================================================================");
     }
 
     private boolean isDateWithinWeek(String date) {

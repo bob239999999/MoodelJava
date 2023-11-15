@@ -33,18 +33,28 @@ public class Professeur extends Utilisateur {
         observers.remove(observer);
     }
 
-    public void notifyObserversNewRep(Matiere mat) {
+    // Method to notify observers when a new repository has been opened for a given subject:
+    public void notifyObserversNewRep(Matiere mat) { 
         for (Observer observer : observers) {
             observer.updateNewRep(mat); 
         }
     }
-        
+
+    // Method to notify observers when a new document (course doc or correction) has been added:
     public void notifyObserversNewDoc(Matiere mat) {
         for (Observer observer : observers) {
             observer.updateNewDoc(mat);
         }
     }
 
+    // Method to open a new work repository:
+    public void ouvrirRepDepot(Matiere mat, String titre, String description, String dateLimite) {
+        RepertoireDepot rep = new RepertoireDepot(mat, titre, description, dateLimite);
+        mat.addRepDepot(rep);
+        notifyObserversNewRep(mat);
+    }
+
+    // Method to add a course document for a given subject:
     public void addDocMat(Matiere mat, DocCours d) {
         if (this.listeMatieres.contains(mat)){
             mat.addDocCours(d);
@@ -59,7 +69,6 @@ public class Professeur extends Utilisateur {
     	Matiere mat = dep.getRepDepot().getMatiere();
         if (this.listeMatieres.contains(mat)){
             dep.setCorrection(c);
-            notifyObserversNewDoc(mat);
         } else {
             System.out.println("Vous n'avez pas la permission d'ajouter une correction dans cette matière.");
         }
@@ -136,11 +145,6 @@ public class Professeur extends Utilisateur {
         }
     }
 
-    public void ouvrirRepDepot(Matiere mat, String titre, String description, String dateLimite) {
-        RepertoireDepot rep = new RepertoireDepot(mat, titre, description, dateLimite);
-        mat.addRepDepot(rep);
-        notifyObserversNewRep(mat);
-    }
 
     @Override 
     public void afficherPlanning(String dateDeb){
